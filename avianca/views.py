@@ -1,21 +1,28 @@
-from django.shortcuts import render
-from django.views.generic import TemplateView, View, ListView
-from django import forms
+from django.shortcuts import render, redirect
+from .models import Vuelo
+from .forms import FormVuelo
 
 # Create your views here.
 
 
-class Hogar(TemplateView):
-    template_name="hogar.html"
+def hogar(request):
+    return render(request, 'hogar.html')
 
 
-class Registrar():
-    template_name="registrar.html"
+def registrar(request):
+    if request.method == 'POST':
+        form = FormVuelo(request.POST)
+        if form.is_valid():
+            form.save()  
+            return redirect('listar')  
+    else:
+        form = FormVuelo()
+    return render(request, 'registrar.html', {'form': form})
 
 
-class Lista(View):
-    template_name="lista.html"
+def listar(request):
+    return render(request, 'listar.html', {'flights': Vuelo.objects.all().order_by('price')})
 
 
-class Estadistica():
-    template_name="estadistica.html"
+def estadisticas(request):
+    return render(request, 'estadisticas.html', {None})
