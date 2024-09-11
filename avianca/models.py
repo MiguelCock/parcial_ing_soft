@@ -4,7 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 # Create your models here.
 
 
-class Vuelo(models):
+class Vuelo(models.Model):
 
     TIPOS_VUELO = [
         ('Nacional', 'Nacional'),
