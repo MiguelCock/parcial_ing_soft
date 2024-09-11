@@ -6,7 +6,7 @@ from .forms import FormVuelo
 
 
 def hogar(request):
-    return render(request, 'hogar.html')
+    return render(request, 'avianca/hogar.html')
 
 
 def registrar(request):
@@ -17,12 +17,12 @@ def registrar(request):
             return redirect('listar')  
     else:
         form = FormVuelo()
-    return render(request, 'registrar.html', {'form': form})
+    return render(request, 'avianca/registrar.html', {'form': form})
 
 
 def listar(request):
-    return render(request, 'listar.html', {'vuelos': Vuelo.objects.all().order_by('price')})
+    return render(request, 'avianca/listar.html', {'vuelos': Vuelo.objects.all().order_by('price')})
 
 
 def estadisticas(request):
-    return render(request, 'estadisticas.html', {None})
+    return render(request, 'avianca/estadisticas.html', {None})
