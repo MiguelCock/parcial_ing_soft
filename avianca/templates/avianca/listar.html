@@ -3,7 +3,7 @@
 <ul>
     {% for vuelo in vuelos %}
     <li>
-        {{ vuelo.id }} - {{ vuelo.name }} - {{ vuelo.flight_type }} - Precio: ${{ vuelo.price }}
+        {{ vuelo.id }} - {{ vuelo.nombre }} - {{ vuelo.tipo }} - Precio: ${{ vuelo.price }}
     </li>
     {% empty %}
     <li>No hay vuelos registrados.</li>

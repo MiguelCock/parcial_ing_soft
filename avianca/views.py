@@ -21,7 +21,7 @@ def registrar(request):
 
 
 def listar(request):
-    return render(request, 'avianca/listar.html', {'vuelos': Vuelo.objects.all().order_by('price')})
+    return render(request, 'avianca/listar.html', {'vuelos': Vuelo.objects.all().order_by('precio')})
 
 
 def estadisticas(request):
